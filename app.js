@@ -24,7 +24,15 @@ app.get('/api/v1/games', (request, response) => {
     });
 });
 
-
+app.get('/api/v1/parlours', (request, response) => {
+  database('game_parlours').select()
+    .then((parlours) => {
+      response.status(200).json(parlours)
+    })
+    .catch(error => {
+      response.status(404).json({ error })
+    })
+})
 
 
 module.exports = app;

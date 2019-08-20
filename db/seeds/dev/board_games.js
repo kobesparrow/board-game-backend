@@ -1,4 +1,4 @@
-const boardGames = require('./../../gameData');
+const boardGames = require('../../seedData/gameData');
 
 const createGame = (knex, game) => {
   return knex('board_games').insert({
@@ -19,26 +19,9 @@ exports.seed = function(knex) {
 
       boardGames.forEach(game => {
         gamePromises.push(createGame(knex, game))
-      })
+      });
 
-      return Promise.all(gamePromises)
+      return Promise.all(gamePromises);
     });
 };
-
-// exports.seed = function (knex) {
-
-//   return knex('board_games').del()
-//     .then(() => {
-//       return Promise.all([
-
-//         // Insert a single paper, return the paper ID, insert 2 footnotes
-//         knex('board_games').insert({
-//           name: 'Fooo', image: 'Lighty'
-//         }, 'id')
-//           .then(() => console.log('Seeding complete!'))
-//           .catch(error => console.log(`Error seeding data: ${error}`))
-//       ])
-//     })
-//     .catch(error => console.log(`Error seeding data: ${error}`));
-// };
 

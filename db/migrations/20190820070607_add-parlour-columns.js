@@ -13,7 +13,7 @@ exports.up = function(knex) {
     table.string('googlemaps_link');
     table.boolean('byogame');
     table.string('logo_image');
-  })
+  });
 };
 
 exports.down = function(knex) {
@@ -30,5 +30,5 @@ exports.down = function(knex) {
     table.dropColumn('googlemaps_link');
     table.dropColumn('byogame');
     table.dropColumn('logo_image');
-  })
+  });
 };
