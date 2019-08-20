@@ -1,21 +1,79 @@
 
-exports.up = function(knex) {
+exports.up = function (knex) {
   return Promise.all([
-    knex.schema.createTable('board_games', function(table) {
-      table.increments('id').primary;
+    knex.schema.createTable('board_games', function (table) {
+      table.increments('id').primary();
       table.string('name');
-      table.integer('minimum players');
-      table.integer('maximum players');
-      table.string('weight');
-      table.integer('time to play');
-      table.string('type');
       table.string('image');
 
-      table.timestamps(true, true)
+      table.timestamps(true, true);
+    }),
+
+    knex.schema.createTable('game_parlours', function (table) {
+      table.increments('id').primary();
+      table.string('location_name');
+
+      table.timestamps(true, true);
     })
+  ])
+};
+
+
+exports.down = function (knex) {
+  return Promise.all([
+    knex.schema.dropTable('game_parlours'),
+    knex.schema.dropTable('board_games')
   ]);
 };
 
-exports.down = function(knex) {
-  knex.schema.dropTable('board_games');
-};
+
+// exports.up = function (knex) {
+//   return Promise.all([
+//     knex.schema.createTable('board_games', function (table) {
+//       table.increments('id').primary();
+//       table.string('name');
+//       table.integer('minimum_players');
+//       table.integer('maximum_players');
+//       table.string('weight');
+//       table.integer('playtime');
+//       table.string('type');
+//       table.string('image');
+
+//       table.timestamps(true, true);
+//     })
+//   ]);
+// };
+
+// exports.down = function(knex) {
+//   return Promise.all([
+//     knex.schema.dropTable('board_games')
+//   ])
+// };
+
+// exports.up = function (knex) {
+//   return Promise.all([
+//     knex.schema.createTable('board_games', function (table) {
+//       table.increments('id').primary();
+//       table.string('title');
+//       table.string('author');
+
+//       table.timestamps(true, true);
+//     }),
+
+//     knex.schema.createTable('footnotes', function (table) {
+//       table.increments('id').primary();
+//       table.string('note');
+//       table.integer('paper_id').unsigned();
+//       table.foreign('paper_id').references('papers.id');
+
+//       table.timestamps(true, true);
+//     })
+//   ])
+// };
+
+// exports.down = function (knex) {
+//   return Promise.all([
+//     knex.schema.dropTable('footnotes'),
+//     knex.schema.dropTable('papers')
+//   ])
+// };

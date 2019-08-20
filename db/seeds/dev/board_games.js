@@ -24,3 +24,21 @@ exports.seed = function(knex) {
       return Promise.all(gamePromises)
     });
 };
+
+// exports.seed = function (knex) {
+
+//   return knex('board_games').del()
+//     .then(() => {
+//       return Promise.all([
+
+//         // Insert a single paper, return the paper ID, insert 2 footnotes
+//         knex('board_games').insert({
+//           name: 'Fooo', image: 'Lighty'
+//         }, 'id')
+//           .then(() => console.log('Seeding complete!'))
+//           .catch(error => console.log(`Error seeding data: ${error}`))
+//       ])
+//     })
+//     .catch(error => console.log(`Error seeding data: ${error}`));
+// };
+

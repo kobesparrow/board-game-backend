@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postres://localhost/games',
+    connection: 'postgres://localhost/games',
     migrations: {
       directory: './db/migrations'
     },
@@ -12,7 +12,7 @@ module.exports = {
       directory: './db/seeds/dev'
     },
     useNullAsDefault: true
-  },
+},
 
   staging: {
     client: 'postgresql',

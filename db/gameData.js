@@ -1144,7 +1144,4 @@ const boardGames = [
   },
 ]
 
-module.exports = {
-  localGameParlours,
-  boardGames
-}
+module.exports = boardGames
