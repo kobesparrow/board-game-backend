@@ -24,9 +24,7 @@ app.get('/api/v1/games', (request, response) => {
     });
 });
 
-app.get('/api/v1/test', (request, response) => {
-  response.status(200).json(app.locals.notes)
-})
+
 
 
 module.exports = app;
